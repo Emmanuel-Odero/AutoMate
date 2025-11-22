@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AutoMate - AI Agentic Workflow Platform
+
+AutoMate is a corporate productivity platform that leverages AI agent chaining to transform meeting discussions into actionable workflows. The application automatically transcribes meetings and uses specialized agents (Slack, JIRA, GitHub) to execute tasks based on conversations, all powered by IBM WatsonX Orchestrate.
+
+## Features
+
+- **Beautiful Landing Page**: Professional marketing page showcasing platform capabilities
+- **Dashboard Overview**: Real-time metrics and insights into meetings, agents, and automated actions
+- **Meeting Management**: Browse, search, and view detailed meeting transcripts
+- **AI Chat Interface**: Interactive chat to query specific meeting content and extract insights
+- **Agent Configuration**: Manage and configure AI agents for workflow automation
+- **Multi-Agent Support**:
+  - Transcriber: Converts meeting audio to text
+  - Slack Poster: Posts summaries to Slack channels
+  - JIRA Creator: Creates tickets from action items
+  - GitHub Opener: Opens issues and PRs from discussions
+
+## Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: Shadcn/UI
+- **State Management**: Zustand
+- **Icons**: Lucide React
+- **Date Handling**: date-fns
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+automate/
+├── app/                      # Next.js app directory
+│   ├── dashboard/           # Dashboard page
+│   ├── meetings/            # Meetings list and detail pages
+│   ├── agents/              # Agent configuration page
+│   └── settings/            # Settings page
+├── components/              # React components
+│   ├── layout/             # Layout components (Sidebar, Header)
+│   ├── meetings/           # Meeting-related components
+│   ├── agents/             # Agent-related components
+│   └── ui/                 # Shadcn UI components
+├── store/                   # Zustand state management
+│   ├── use-meeting-store.ts
+│   └── use-agent-store.ts
+├── types/                   # TypeScript type definitions
+├── lib/                     # Utility functions and mock data
+└── public/                  # Static assets
+```
 
-## Learn More
+## Key Pages
 
-To learn more about Next.js, take a look at the following resources:
+- `/dashboard` - Overview with metrics and recent activity
+- `/meetings` - List of all meetings with search
+- `/meetings/[id]` - Detailed meeting view with transcript, summary, actions, and AI chat
+- `/agents` - Agent configuration and management
+- `/settings` - Application and integration settings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## State Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application uses Zustand for lightweight state management:
 
-## Deploy on Vercel
+- `useMeetingStore`: Manages meetings, selected meeting, and chat messages
+- `useAgentStore`: Manages agent configurations and status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The frontend is architected to support future backend integration with IBM WatsonX Orchestrate for:
+
+- Real-time meeting transcription
+- AI-powered agent orchestration
+- Automated workflow execution
+- Natural language processing for chat queries
+
+## Development
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Start production server:
+
+```bash
+npm start
+```
+
+## Deployment
+
+This application is optimized for deployment on Vercel. Simply connect your repository to Vercel for automatic deployments.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+## License
+
+MIT
